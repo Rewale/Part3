@@ -37,24 +37,24 @@ namespace Part3
     {
         static void Main(string[] args)
         {
-            //List<IInit> inits = new List<IInit>();
-            //inits.Add(new person());
-            //inits.Add(new person());
-            //inits.Add(new student());
-            //inits.Add(new student());
-            //inits.Add(new StDistant());
-            //inits.Add(new StDistant());
-            //inits.Add(new schoolboy());
-            //inits.Add(new schoolboy());
-            //inits.Add(new InitClass());
-            //inits.Add(new InitClass());
+            List<IInit> inits = new List<IInit>();
+            inits.Add(new person());
+            inits.Add(new person());
+            inits.Add(new student());
+            inits.Add(new student());
+            inits.Add(new StDistant());
+            inits.Add(new StDistant());
+            inits.Add(new schoolboy());
+            inits.Add(new schoolboy());
+            inits.Add(new InitClass());
+            inits.Add(new InitClass());
 
-            //Console.WriteLine("До вызова метода Init");
-            //inits.ForEach(p => p.ToString());
+            Console.WriteLine("До вызова метода Init");
+            inits.ForEach(p => p.ToString());
 
-            //inits.ForEach(p => p.Init());
-            //Console.WriteLine("После вызова метода Init");
-            //inits.ForEach(p => p.ToString());
+            inits.ForEach(p => p.Init());
+            Console.WriteLine("После вызова метода Init");
+            inits.ForEach(p => p.ToString());
             SortByComparer();
             Console.WriteLine("---------");
             SortWOComparer();
