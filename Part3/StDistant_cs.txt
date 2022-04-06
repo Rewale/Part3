@@ -1,0 +1,39 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace inheritance
+{
+    internal class StDistant : person
+    {
+        string form;
+        public string Form
+        {
+            get { return form; }
+            set { form = value; }
+        }
+        public StDistant() : base() //конструтор по-умолчанию с вызовом конструктора базового класса
+        {
+            form = "undefined";
+        }
+        public StDistant(string form, string status, string place, string gender) : base("Студент-заочник", place, "Мужской") //конструтор с вызовом конструктора базового класса
+        {
+            Form = form;
+        }
+        public override void ShowVirt() //виртуальный 
+        {
+            base.ShowVirt();
+            Console.WriteLine($"Форма обучения: {form}.");
+        }
+        public new void Show() //не виртуальный 
+        {
+            base.Show();
+            Console.WriteLine($"Форма обучения: {form}.");
+        }
+    }
+}

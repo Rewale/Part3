@@ -1,0 +1,36 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace inheritance
+{
+    internal class schoolboy:person
+    {        
+        string progress;
+        public string Progress
+        {
+            get { return progress; }
+            set { progress = value; }
+        }
+        public schoolboy() : base() //конструтор по-умолчанию с вызовом конструктора базового класса
+        {
+            progress = "undefined";
+        }
+        public schoolboy(string progress, string status, string place, string gender) : base("Школьник", place,"Женский") //конструтор с вызовом конструктора базового класса
+        {
+            Progress = progress;
+        }
+        public override void ShowVirt() //виртуальный 
+        {
+            base.ShowVirt();
+            Console.WriteLine($"Прогресс: {progress}.");
+        }
+        public new void Show() //не виртуальный 
+        {
+            base.Show();
+            Console.WriteLine($"Прогресс: {progress}.");
+        }
+    }
+}

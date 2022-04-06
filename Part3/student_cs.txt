@@ -1,0 +1,43 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace inheritance
+{
+    internal class student:person
+    {
+        int course;
+        public int Course
+        {
+            get { return course; }
+            set { 
+                if (value <= 0)
+                {
+                    course = 0;
+                    Console.WriteLine("Не учится в ВУЗе");
+                }
+                else course = value;            
+            }
+        }
+        public student() : base() //конструтор по-умолчанию с вызовом конструктора базового класса
+        {
+            Course = 0;
+        }
+        public student(int course, string status, string place, string gender) : base("Студент", place, "Мужской") //конструтор с вызовом конструктора базового класса
+        {
+            Course = course;
+        }
+        public override void ShowVirt() //виртуальный 
+        {
+            base.ShowVirt();
+            Console.WriteLine($"Курс: {course}.");
+        }
+        public new void Show() //не виртуальный 
+        {
+            base.Show();
+            Console.WriteLine($"Курс: {course}.");
+        }
+    }
+}

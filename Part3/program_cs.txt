@@ -1,0 +1,90 @@
+using System;
+namespace inheritance 
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.ForegroundColor = ConsoleColor.DarkYellow;
+            Console.WriteLine("Работа студентки группы ПР-11 Ильчишиной Ксении\nВариант №10: персона, студент, студент - заочник, школьник;\n");
+            student s1 = new student(3,"Студент","ВУЗ", "Мужской");
+            StDistant st1 = new StDistant("Заочно","Студент-заочник","ВУЗ", "Женский");
+            schoolboy sh1 = new schoolboy("Отлично", "Школьник", "Школа", "Мужской");
+            person[] p = { s1, st1, sh1};
+
+            student s2 = new student(2, "Студент", "ВУЗ", "Мужской");
+            StDistant st2 = new StDistant("Заочно", "Студент-заочник", "ВУЗ", "Женский");
+            schoolboy sh2 = new schoolboy("Хорошо", "Школьник", "Школа", "Мужской");
+
+            student s3 = new student(1, "Студент", "ВУЗ", "Мужской");
+            StDistant st3 = new StDistant("Заочно", "Студент-заочник", "ВУЗ", "Мужской");
+            schoolboy sh3 = new schoolboy("Удовлетворительно", "Школьник", "Школа", "Женский");
+
+            person[] p2 = { s1, st1, sh1, s2, st2, sh2, s3, st3, sh3 };
+
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine("Демонстрация работы виртуальных методов: ");
+            Console.ForegroundColor = ConsoleColor.White;
+
+            foreach (person person in p)
+            {
+                person.ShowVirt(); //вызов виртуальных методов
+                Console.WriteLine();
+            }
+
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine("Демонстрация работы не виртуальных методов: ");
+            Console.ForegroundColor = ConsoleColor.White;
+
+            foreach (person person in p)
+            {
+                person.Show();//вызов не виртуальных методов
+                Console.WriteLine();
+            } 
+//2 часть 
+            static void Request1(person[] p) //запрос 1
+            {
+                int count = 0 ;
+                foreach (person person in p)
+                    if (person is StDistant) count++;
+                Console.WriteLine($"Всего студентов-заочников: {count}");
+            }
+
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine("Запрос №1");
+            Console.ForegroundColor = ConsoleColor.White;
+            Request1(p2);
+
+            static void Request2(person[] p) //запрос 2
+            {
+                int count = 0;
+                for (int i = 0; i < p.Length; i++)
+                {
+                    if (p[i].Gender == "Женский") count++;
+                }
+                Console.WriteLine($"Всего женщин: {count}");
+            }
+
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine("Запрос №2");
+            Console.ForegroundColor = ConsoleColor.White;
+            Request2(p2);
+
+            static void Request3(person[] p) //запрос 3
+            {
+                int count = 0;                
+                for (int i = 0; i < p.Length; i++)
+                {
+                    if (p[i].Place == "ВУЗ") count++;
+                }
+                Console.WriteLine($"Обучающихся в вузе: {count}");
+            }
+
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine("Запрос №3");
+            Console.ForegroundColor = ConsoleColor.White;
+            Request3(p2);           
+
+        }
+    }
+}

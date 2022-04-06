@@ -1,0 +1,48 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace inheritance
+{
+    internal class person
+    {
+        protected string status;     // студент/студент-заочник/школьник
+        protected string place;     //место учебы: Школа/вуз
+        protected string gender;   //гендер 
+
+        public string Status
+        {
+            get { return status; }
+            set { status = value; }
+        }        
+        public string Place
+        {
+            get { return place; }
+            set { place = value; }
+        }
+
+        public string Gender
+        {
+            get { return gender; }
+            set { gender = value; }
+        }
+        public person() : this("status", "place", "gender") { } //конструктор без параметров
+
+        public person(string status, string place, string gender) //конструктор с параметрами 
+        {
+            Status = status;
+            Place = place;
+            Gender = gender;
+        }
+        public virtual void ShowVirt() //виртуальный 
+        {
+            Console.WriteLine($"(Вирутальный метод)\nСтатус: {status}.\nМесто обучения: {place}.");
+        }
+        public void Show() //не виртуальный 
+        {
+            Console.WriteLine($"(Не вирутальный метод)\nСтатус: {status}.\nМесто обучения: {place}.");
+        }
+    }
+}
